@@ -4,6 +4,12 @@ import { RFPercentage, RFValue } from 'react-native-responsive-fontsize'
 import theme from '../../global/styles/theme'
 
 
+interface TransactionProps {
+    type: 'positive' | 'negative';
+
+}
+
+
 export const Container = styled.View`
  background-color: ${({ theme }) => theme.colors.shape};
  border-radius: 5px;
@@ -18,11 +24,14 @@ export const Title = styled.Text`
     font-size: ${RFValue(14)}px
 
 `
-export const Amount = styled.Text`
+export const Amount = styled.Text<TransactionProps>`
     font-family: ${({ theme }) => theme.fonts.regular};
     font-size: ${RFValue(20)}px;
     color: ${({ theme }) => theme.colors.sucess};
     margin-top: 2px;
+    color: ${({ theme, type }) =>
+        type === 'positive' ? theme.colors.sucess : theme.colors.attention};
+
 `
 
 export const Footer = styled.View`

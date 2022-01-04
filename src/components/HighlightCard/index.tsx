@@ -11,9 +11,9 @@ import {
 
 interface Props {
     type: 'up' | 'down' | 'total'
-    title: String
-    amount: String
-    lastTransaction: String
+    title: string
+    amount: string
+    lastTransaction: string
 
 }
 
